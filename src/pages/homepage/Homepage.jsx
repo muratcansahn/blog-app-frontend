@@ -7,15 +7,16 @@ import "./homepage.css";
 import axios from "axios";
 
 export default function Homepage() {
+  const { search } = useLocation();
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get("/posts");
+      const res = await axios.get("/posts" + search);
       setPosts(res.data);
     };
     fetchPosts();
   }, []);
-  console.log(posts);
+  console.log(search);
 
   return (
     <>
