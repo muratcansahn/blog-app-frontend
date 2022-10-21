@@ -6,6 +6,7 @@ import "./singlePost.css";
 export default function SinglePost() {
   const { id } = useParams();
   const [post, setPost] = useState({});
+  const PF = "http://localhost:5000/images/";
   useEffect(() => {
     const fetchPost = async () => {
       const res = await axios.get("/posts/" + id);
@@ -17,7 +18,7 @@ export default function SinglePost() {
     <div className="singlePost">
       <div className="singlePostWrapper">
         {post.photo && (
-          <img className="singlePostImg" src={post.photo} alt="" />
+          <img className="singlePostImg" src={PF + post.photo} alt="" />
         )}
 
         <h1 className="singlePostTitle">
